@@ -35,7 +35,7 @@ def main():
     
     # Define the target column (for supervised learning)
     # Set to None for unsupervised tasks
-    target_column = None  # e.g., "target" or "label"
+    target_column = "target"  # e.g., "target" or "label"
     
     try:
         # Run the complete pipeline

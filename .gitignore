@@ -131,6 +131,7 @@ dmypy.json
 
 # Project specific
 *.csv
+!data/sample_data.csv
 !data/.gitkeep
 !models/.gitkeep
 *.pkl
