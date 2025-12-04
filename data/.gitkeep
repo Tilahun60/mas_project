@@ -1,0 +1,26 @@
+# Data Directory
+
+Place your CSV data files in this directory.
+
+## Expected Format
+
+The system expects CSV files with:
+- Header row with column names
+- Numeric or categorical features
+- Optional target column for supervised learning
+
+## Example Structure
+
+```
+data/
+├── .gitkeep
+├── sample_data.csv
+├── training_data.csv
+└── test_data.csv
+```
+
+## Notes
+
+- Large data files (>100MB) should be added to `.gitignore`
+- Consider using CSV compression (gzip) for large datasets
+- Ensure proper encoding (UTF-8 recommended)
