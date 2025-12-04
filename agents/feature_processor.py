@@ -1,7 +1,7 @@
 """Feature processing agent for feature engineering."""
 import pandas as pd
 import numpy as np
-from typing import List, Optional
+from typing import List, Optional, Union
 from .base_agent import BaseAgent
 
 
@@ -20,7 +20,7 @@ class FeatureProcessorAgent(BaseAgent):
         """
         super().__init__(name)
     
-    def run(self, df: pd.DataFrame, target_column: Optional[str] = None) -> tuple:
+    def run(self, df: pd.DataFrame, target_column: Optional[str] = None) -> Union[pd.DataFrame, tuple]:
         """Process and engineer features from the data.
         
         Args:
@@ -84,10 +84,18 @@ class FeatureProcessorAgent(BaseAgent):
                     processed_df[col] = (processed_df[col] - mean) / std
             self.log("Normalized numeric features")
         
-        # Encode categorical features (simple label encoding)
+        # Encode categorical features (using sklearn LabelEncoder for robustness)
         if categorical_cols:
-            for col in categorical_cols:
-                processed_df[col] = pd.Categorical(processed_df[col]).codes
-            self.log("Encoded categorical features")
+            try:
+                from sklearn.preprocessing import LabelEncoder
+                for col in categorical_cols:
+                    le = LabelEncoder()
+                    processed_df[col] = le.fit_transform(processed_df[col].astype(str))
+                self.log("Encoded categorical features using LabelEncoder")
+            except ImportError:
+                # Fallback to simple categorical codes if sklearn not available
+                for col in categorical_cols:
+                    processed_df[col] = pd.Categorical(processed_df[col]).codes
+                self.log("Encoded categorical features using categorical codes")
         
         return processed_df
