@@ -109,12 +109,14 @@ mas_project/
 │   ├── prediction_agent.py     # ML model training and prediction
 │   └── visualization_agent.py  # Data and result visualization
 │
-├── data/                        # Dataset storage (place CSV files here)
+├── data/                        # Dataset storage
+│   └── sample_data.csv         # Example dataset for testing
 │
 ├── models/                      # Trained model storage
 │
 ├── orchestrator.py             # System coordination and workflow
 ├── main.py                     # Entry point for running the pipeline
+├── test_pipeline.py            # Test script to verify the system works
 ├── requirements.txt            # Python dependencies
 └── README.md                   # This file
 ```
@@ -145,6 +147,28 @@ pip install -r requirements.txt
 ```
 
 ## Usage
+
+### Quick Start
+
+The repository includes a sample dataset to help you get started immediately:
+
+```bash
+# Run with the included sample data
+python main.py
+```
+
+This will:
+- Load the sample dataset (`data/sample_data.csv`)
+- Train a Random Forest classifier
+- Generate predictions
+- Create visualizations
+- Save the trained model
+
+You can also run the test script to verify everything works:
+
+```bash
+python test_pipeline.py
+```
 
 ### Basic Usage
 
