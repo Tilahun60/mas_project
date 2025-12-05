@@ -1,0 +1,24 @@
+# Models Directory
+
+Trained machine learning models are stored in this directory.
+
+## Saved Models
+
+Models are saved in pickle format (.pkl) using joblib.
+
+## Example Structure
+
+```
+models/
+├── .gitkeep
+├── trained_model.pkl
+├── random_forest_v1.pkl
+└── best_model.pkl
+```
+
+## Notes
+
+- Models can be large files, consider adding to `.gitignore` if needed
+- Use descriptive names for your models
+- Include version numbers or dates in filenames for tracking
+- Models are saved and loaded using the `PredictionAgent` methods
