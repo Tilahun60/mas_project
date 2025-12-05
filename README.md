@@ -115,7 +115,8 @@ mas_project/
 ├── models/                      # Trained model storage
 │
 ├── orchestrator.py             # System coordination and workflow
-├── main.py                     # Entry point for running the pipeline
+├── main.py                     # CLI entry point for running the pipeline
+├── webapp.py                   # Web interface (Streamlit dashboard)
 ├── test_pipeline.py            # Test script to verify the system works
 ├── requirements.txt            # Python dependencies
 └── README.md                   # This file
@@ -169,6 +170,28 @@ You can also run the test script to verify everything works:
 ```bash
 python test_pipeline.py
 ```
+
+### Web Interface (Recommended for Beginners)
+
+Launch the interactive web dashboard to explore the MAS visually:
+
+```bash
+streamlit run webapp.py
+```
+
+This will open a web browser with an interactive dashboard where you can:
+- 📊 Upload your own CSV files or use sample data
+- ⚙️ Configure pipeline parameters through the UI
+- 🚀 Run the complete MAS pipeline with one click
+- 📈 View real-time results, predictions, and visualizations
+- 📥 Download predictions and processed data
+
+**Features:**
+- No coding required - point and click interface
+- Real-time pipeline execution logs
+- Interactive data preview and statistics
+- Automatic visualization generation
+- Download results in CSV format
 
 ### Basic Usage
 

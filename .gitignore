@@ -137,3 +137,5 @@ dmypy.json
 *.pkl
 *.png
 !docs/*.png
+webapp_visualization.png
+data/temp_upload.csv
